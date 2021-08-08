@@ -50,20 +50,17 @@ export default function Spinner({ size, fill, colors }: Props) {
 
 
   return (
-    <div style={style}>
-      <svg width='100%' height='100%' viewBox='0 0 100 100'>
-        {colors.length > 1 &&
-          <circle r='40' cx='50' cy='50'
-            strokeWidth={fill ? '0px' : '2px'}
-            stroke={colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]}
-            fill={(fill ? (colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]) : 'none')} />
-        }
-        <path d={getD(fill, deg)}
-          strokeWidth={fill ? '0px' : '4px'}
-          stroke={colors[colorInd]}
-          fill={(fill ? colors[colorInd] : 'none')} />
-      </svg>
-
-    </div>
+    <svg style={style} width='100%' height='100%' viewBox='0 0 100 100'>
+      {colors.length > 1 &&
+        <circle r='39.8' cx='50' cy='50'
+          strokeWidth={fill ? '0' : '2'}
+          stroke={colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]}
+          fill={(fill ? (colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]) : 'none')} />
+      }
+      <path d={getD(fill, deg)}
+        strokeWidth={fill ? '0' : '4'}
+        stroke={colors[colorInd]}
+        fill={(fill ? colors[colorInd] : 'none')} />
+    </svg>
   )
 }
