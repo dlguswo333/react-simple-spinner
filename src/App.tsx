@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Spinner fill={false} color={'#25f'} />
+        <Spinner fill={true} colors={['#25f', '#ff0']} />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
