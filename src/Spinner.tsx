@@ -24,10 +24,10 @@ function getD(fill: boolean, deg: number): string {
   return ret
 }
 
-let colorInd = 0
 
 export default function Spinner({ size, fill, colors }: Props) {
   const [deg, setDeg] = useState(0)
+  const [colorInd, setColorInd] = useState(0)
   const circleSize = (size ? size.toString() : '40px')
   const style: React.CSSProperties = {
     display: 'inline-flex',
@@ -39,27 +39,27 @@ export default function Spinner({ size, fill, colors }: Props) {
     const handler = setInterval(() => {
       setDeg((deg) => {
         let nextVal = (deg + 3) % 360
-        return nextVal === 0 ? 359 : nextVal
+        if (nextVal === 0) {
+          setColorInd((colorInd) => ((colorInd + 1) % colors.length))
+        }
+        return nextVal
       })
     }, 16)
-    return () => { clearTimeout(handler) }
-  }, [])
+    return () => { clearInterval(handler) }
+  }, [colors])
 
-  useEffect(() => {
-    if (deg === 0)
-      colorInd = (colorInd + 1) % colors.length
-  }, [deg, colors])
 
   return (
     <div style={style}>
       <svg width='100%' height='100%' viewBox='0 0 100 100'>
-        <circle r='40' cx='50' cy='50'
-          strokeWidth={fill ? '0' : '4px'}
-          stroke={colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]}
-          fill={(fill ? (colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]) : 'none')} />
-
+        {colors.length > 1 &&
+          <circle r='40' cx='50' cy='50'
+            strokeWidth={fill ? '0px' : '2px'}
+            stroke={colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]}
+            fill={(fill ? (colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]) : 'none')} />
+        }
         <path d={getD(fill, deg)}
-          strokeWidth={fill ? '0' : '4px'}
+          strokeWidth={fill ? '0px' : '4px'}
           stroke={colors[colorInd]}
           fill={(fill ? colors[colorInd] : 'none')} />
       </svg>
