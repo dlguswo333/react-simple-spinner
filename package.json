@@ -16,7 +16,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepublish": "tsc"
+    "prepublish": "tsc",
+    "clean": "rd /s lib"
   },
   "eslintConfig": {
     "extends": [

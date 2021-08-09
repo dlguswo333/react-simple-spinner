@@ -54,7 +54,7 @@ export default function Spinner({ size, fill, colors }: Props) {
     <svg style={style} width='100%' height='100%' viewBox='0 0 100 100'>
       {colors.length > 1 &&
         <circle r='39.8' cx='50' cy='50'
-          strokeWidth={fill ? '0' : '2'}
+          strokeWidth={fill ? '0' : '3.7'}
           stroke={colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]}
           fill={(fill ? (colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]) : 'none')} />
       }
