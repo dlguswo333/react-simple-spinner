@@ -38,15 +38,16 @@ export default function Spinner({ size, fill, colors }: Props) {
   useEffect(() => {
     const handler = setInterval(() => {
       setDeg((deg) => {
-        let nextVal = (deg + 3) % 360
-        if (nextVal === 0) {
-          setColorInd((colorInd) => ((colorInd + 1) % colors.length))
+        let nextVal = (deg + 3)
+        if (nextVal >= 360) {
+          nextVal %= 360
+          setColorInd((colorInd + 1) % colors.length)
         }
         return nextVal
       })
     }, 16)
     return () => { clearInterval(handler) }
-  }, [colors])
+  }, [colors, colorInd])
 
 
   return (
