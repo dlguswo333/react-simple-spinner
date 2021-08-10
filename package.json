@@ -3,6 +3,7 @@
   "version": "0.4.0",
   "private": false,
   "description": "A simple spinner made with react.",
+  "license": "MIT",
   "repository": {
     "url": "https://github.com/dlguswo333/react-simple-spinner"
   },
