@@ -19,14 +19,20 @@ function getYOffset(deg: number): number {
 /**
  * @param {number} deg The degree value in 360°.
  */
-function getD(fill: boolean, deg: number): string {
-  let ret = `${fill ? 'M 50 50 l 0 -40' : 'M 50 10'} a 40 40 0 ${deg >= 180 ? 1 : 0} 1 ${getXOffset(deg)} ${getYOffset(deg)} M 50 50 Z`
-  return ret
+function getD(clockwise: boolean, fill: boolean, deg: number): string {
+  if (clockwise) {
+    const ret = `${fill ? 'M 50 50 l 0 -40' : 'M 50 10'} a 40 40 0 ${deg >= 180 ? 1 : 0} 1 ${getXOffset(deg)} ${getYOffset(deg)} M 50 50 Z`
+    return ret
+  }
+  else {
+    const ret = `${fill ? 'M 50 50 l 0 -40' : 'M 50 10'} a 40 40 0 ${deg >= 180 ? 0 : 1} 0 ${getXOffset(deg)} ${getYOffset(deg)} M 50 50 Z`
+    return ret
+  }
 }
 
 
 export default function Spinner({ size, fill, colors }: Props) {
-  const [deg, setDeg] = useState(0)
+  const [deg, setDeg] = useState(1)
   const [colorInd, setColorInd] = useState(0)
   const circleSize = (size ? size.toString() : '40px')
   const style: React.CSSProperties = {
@@ -49,16 +55,15 @@ export default function Spinner({ size, fill, colors }: Props) {
     return () => { clearInterval(handler) }
   }, [colors, colorInd])
 
-
   return (
     <svg style={style} width='100%' height='100%' viewBox='0 0 100 100'>
       {colors.length > 1 &&
-        <circle r='39.8' cx='50' cy='50'
-          strokeWidth={fill ? '0' : '3.7'}
-          stroke={colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]}
+        <path d={getD(false, fill, deg)}
+          strokeWidth={fill ? '0' : '4'}
+          stroke={(colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1])}
           fill={(fill ? (colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]) : 'none')} />
       }
-      <path d={getD(fill, deg)}
+      <path d={getD(true, fill, deg)}
         strokeWidth={fill ? '0' : '4'}
         stroke={colors[colorInd]}
         fill={(fill ? colors[colorInd] : 'none')} />

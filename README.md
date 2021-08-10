@@ -1,9 +1,4 @@
 # @dlguswo333/react-simple-spinner
-npm link: https://www.npmjs.com/package/@dlguswo333/react-simple-spinner
-<br>
-github link: https://github.com/dlguswo333/react-simple-spinner
-<br>
-
 ```JSX
 <Spinner fill={false} colors={['#25f', '#ff0', '#f22']} />
 ```
@@ -16,7 +11,17 @@ github link: https://github.com/dlguswo333/react-simple-spinner
 ![spinner-fill-false](./public/spinner-fill-true.gif)
 <br>
 
+## Links
+[npm link](https://www.npmjs.com/package/@dlguswo333/react-simple-spinner)
+<br>
+[github link](https://github.com/dlguswo333/react-simple-spinner)
+<br>
+
 ## Version History
+### 0.4.0
+- Fix a issue color sticks out beacuse shape does not overlap the other completely .
+<br>
+
 ### 0.3.0
 - Fix a color indexing bug in React strict mode.
 <br>
@@ -24,3 +29,6 @@ github link: https://github.com/dlguswo333/react-simple-spinner
 ### 0.2.0 
 - Initial version.
 <br>
+
+### 0.1.0
+- Garbage version and Deprecated.
