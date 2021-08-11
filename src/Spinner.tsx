@@ -21,11 +21,11 @@ function getYOffset(deg: number): number {
  */
 function getD(clockwise: boolean, fill: boolean, deg: number): string {
   if (clockwise) {
-    const ret = `${fill ? 'M 50 50 l 0 -40' : 'M 50 10'} a 40 40 0 ${deg >= 180 ? 1 : 0} 1 ${getXOffset(deg)} ${getYOffset(deg)} M 50 50 Z`
+    const ret = (fill ? `M 50 50 l 0 ${-r}` : `M 50 ${50 - r}`) + `a ${r} ${r} 0 ${deg >= 180 ? 1 : 0} 1 ${getXOffset(deg)} ${getYOffset(deg)} M 50 50 Z`
     return ret
   }
   else {
-    const ret = `${fill ? 'M 50 50 l 0 -40' : 'M 50 10'} a 40 40 0 ${deg >= 180 ? 0 : 1} 0 ${getXOffset(deg)} ${getYOffset(deg)} M 50 50 Z`
+    const ret = (fill ? `M 50 50 l 0 ${-r}` : `M 50 ${50 - r}`) + `a ${r} ${r} 0 ${deg >= 180 ? 0 : 1} 0 ${getXOffset(deg)} ${getYOffset(deg)} M 50 50 Z`
     return ret
   }
 }
@@ -34,11 +34,11 @@ function getD(clockwise: boolean, fill: boolean, deg: number): string {
 export default function Spinner({ size, fill, colors }: Props) {
   const [deg, setDeg] = useState(1)
   const [colorInd, setColorInd] = useState(0)
-  const circleSize = (size ? size.toString() : '40px')
+  const spinnerSize = (size ? size.toString() : '40px')
   const style: React.CSSProperties = {
     display: 'inline-flex',
-    width: circleSize,
-    height: circleSize,
+    width: spinnerSize,
+    height: spinnerSize,
   }
 
   useEffect(() => {
