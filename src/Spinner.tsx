@@ -29,7 +29,7 @@ function getD(clockwise: boolean, fill: boolean, deg: number): string {
 }
 
 
-export default function Spinner({ size, fill, colors }: Props) {
+function Spinner({ size, fill, colors }: Props) {
   const [deg, setDeg] = useState(1)
   const [colorInd, setColorInd] = useState(0)
   const spinnerSize = (size ? size.toString() : '40px')
@@ -55,16 +55,18 @@ export default function Spinner({ size, fill, colors }: Props) {
 
   return (
     <svg style={style} width='100%' height='100%' viewBox='0 0 100 100'>
+      <path d={getD(true, fill, deg)}
+        strokeWidth={fill ? '0' : '4'}
+        stroke={colors[colorInd]}
+        fill={(fill ? colors[colorInd] : 'none')} />
       {colors.length > 1 &&
         <path d={getD(false, fill, deg)}
           strokeWidth={fill ? '0' : '4'}
           stroke={(colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1])}
           fill={(fill ? (colorInd === 0 ? colors[colors.length - 1] : colors[colorInd - 1]) : 'none')} />
       }
-      <path d={getD(true, fill, deg)}
-        strokeWidth={fill ? '0' : '4'}
-        stroke={colors[colorInd]}
-        fill={(fill ? colors[colorInd] : 'none')} />
     </svg>
   )
 }
+
+export { Spinner as default, getD }
