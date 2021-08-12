@@ -20,14 +20,12 @@ function getYOffset(deg: number): number {
  * @param {number} deg The degree value in 360°.
  */
 function getD(clockwise: boolean, fill: boolean, deg: number): string {
-  if (clockwise) {
-    const ret = (fill ? `M 50 50 l 0 ${-r}` : `M 50 ${50 - r}`) + `a ${r} ${r} 0 ${deg >= 180 ? 1 : 0} 1 ${getXOffset(deg)} ${getYOffset(deg)} M 50 50 Z`
-    return ret
-  }
-  else {
-    const ret = (fill ? `M 50 50 l 0 ${-r}` : `M 50 ${50 - r}`) + `a ${r} ${r} 0 ${deg >= 180 ? 0 : 1} 0 ${getXOffset(deg)} ${getYOffset(deg)} M 50 50 Z`
-    return ret
-  }
+  const ret =
+    (fill ? `M 50 50 l 0 ${-r}` : `M 50 ${50 - r}`)
+    + ` a ${r} ${r} 0 `
+    + `${(deg >= 180) === clockwise ? 1 : 0} ${clockwise ? 1 : 0}`
+    + ` ${getXOffset(deg)} ${getYOffset(deg)} M 50 50 Z`
+  return ret
 }
 
 
