@@ -1,4 +1,10 @@
 # @dlguswo333/react-simple-spinner
+## Introduction
+**@dlguswo333/react-simple-spinner** is a simple and lightweight spinner made as a react functional component.<br>
+you can set the **size**, **colors to iterate**, and **a flag whether to fill or not** of a spinner.
+<br> 
+
+## Examples
 ```JSX
 <Spinner fill={false} colors={['#aaa', '#333']} />
 ```
@@ -15,10 +21,6 @@
 <Spinner fill={true} colors={['#25f', '#ff0', '#f22']} />
 ```
 ![spinner-fill-false](./public/spinner-fill-true.gif)
-<br>
-
-- [npm link](https://www.npmjs.com/package/@dlguswo333/react-simple-spinner)
-- [github link](https://github.com/dlguswo333/react-simple-spinner)
 <br>
 
 ## Props
@@ -41,3 +43,8 @@
 
 ### 0.1.0
 - Garbage version and Deprecated.
+
+## Links
+- [npm link](https://www.npmjs.com/package/@dlguswo333/react-simple-spinner)
+- [github link](https://github.com/dlguswo333/react-simple-spinner)
+<br>
