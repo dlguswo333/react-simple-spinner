@@ -28,7 +28,6 @@ function getD(clockwise: boolean, fill: boolean, deg: number): string {
   return ret
 }
 
-
 function Spinner({ size, fill, colors }: Props) {
   const [deg, setDeg] = useState(1)
   const [colorInd, setColorInd] = useState(0)
