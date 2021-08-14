@@ -1,6 +1,6 @@
 {
   "name": "@dlguswo333/react-simple-spinner",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "private": false,
   "description": "A simple spinner made with react.",
   "license": "MIT",
@@ -13,15 +13,12 @@
     "url": "https://github.com/dlguswo333/react-simple-spinner"
   },
   "main": "lib/Spinner.js",
-  "dependencies": {
-    "react": "^16.8.0"
-  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepublishOnly": "npm run clean && tsc --noEmit false",
+    "prepublishOnly": "npm run clean || tsc --noEmit false",
     "clean": "rd /s lib"
   },
   "eslintConfig": {
@@ -43,6 +40,7 @@
     ]
   },
   "devDependencies": {
+    "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "@babel/cli": "^7.14.8",
     "@babel/preset-react": "^7.14.5",
