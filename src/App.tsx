@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         <Spinner fill={false} colors={['#25f', '#ff0', '#f22']} />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code>src/Spinner.tsx</code> and save to reload.
         </p>
       </header>
     </div>
