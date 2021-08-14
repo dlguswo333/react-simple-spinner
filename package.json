@@ -1,6 +1,6 @@
 {
   "name": "@dlguswo333/react-simple-spinner",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "private": false,
   "description": "A simple spinner made with react.",
   "license": "MIT",
@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "prepublishOnly": "npm run clean || tsc --noEmit false",
+    "prepublishOnly": "tsc --noEmit false",
     "clean": "rd /s lib"
   },
   "eslintConfig": {
