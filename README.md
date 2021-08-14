@@ -32,6 +32,11 @@ you can set the **size**, **colors to iterate**, and **a flag whether to fill or
 <br>
 
 ## Version History
+### 0.5.0
+- Refactor codes.
+- Edit package dependencies.
+- Add test code to improve stability.
+
 ### 0.4.0
 - Fix a issue where color sticks out because shape does not overlap the other completely.
 
