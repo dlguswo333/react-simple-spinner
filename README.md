@@ -32,6 +32,9 @@ you can set the **size**, **colors to iterate**, and **a flag whether to fill or
 <br>
 
 ## Version History
+### 0.5.2
+- Fix hook error due to miss-written dependencies.
+
 ### 0.5.1
 - Shrink package size by deleting test codes from build outputs.
 
