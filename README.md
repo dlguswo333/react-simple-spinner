@@ -42,6 +42,7 @@ Please use the latest version to avoid unwanted problems.
 - Improve dependency specifications.
 - Shrink package size by deleting unnecessary files.
 - Add new prop: `width`.
+
 ### 0.5.3
 - Solve build outputs not exist.
 
