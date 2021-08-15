@@ -1,7 +1,14 @@
 import { cleanup, render, act } from '@testing-library/react';
 import Spinner, { getD } from './Spinner';
+import { existsSync } from 'fs';
+import { join as pathJoin } from 'path';
 
 afterEach(cleanup);
+
+describe('Build output exist test', () => {
+  expect(existsSync(pathJoin(__dirname, '../lib/Spinner.js'))).toEqual(true);
+  expect(existsSync(pathJoin(__dirname, '../lib/Spinner.d.ts'))).toEqual(true);
+});
 
 describe('getD test', () => {
   function getxyNotFill(dValue: string): number[] {
