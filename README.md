@@ -32,6 +32,10 @@ you can set the **size**, **colors to iterate**, and **a flag whether to fill or
 <br>
 
 ## Version History
+### Attention
+Before version 0.6.0, there were miswritten dependencies and missed build outputs which caused numerous problems.<br>
+Please use the latest version to avoid unwanted problems.
+
 ### 0.6.0
 - Improve stabilities.
 - Improve dependency specifications.

@@ -1,4 +1,4 @@
-# NOTICE!!!
+# Attention!!!
 Before you publish, check out the list!
 - Test passes.
 - Build outputs are located in `lib`.
