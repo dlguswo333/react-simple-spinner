@@ -27,6 +27,7 @@ you can set the **size**, **colors to iterate**, and **a flag whether to fill or
 | Prop | Type | Description | Optional | Default |
 | :---: | :---: | :--- | :---: | :---: |
 | **size** | string | Size of spinner. | YES | `40px` |
+| **width** | string | Width of spinner when `fill` is `false`. | YES | `4` |
 | **fill** | boolean | Fill in spinner. | NO | - |
 | **colors** | string[] | List of colors to iterate. | NO | - |
 <br>
@@ -40,7 +41,7 @@ Please use the latest version to avoid unwanted problems.
 - Improve stabilities.
 - Improve dependency specifications.
 - Shrink package size by deleting unnecessary files.
-
+- Add new prop: `width`.
 ### 0.5.3
 - Solve build outputs not exist.
 
