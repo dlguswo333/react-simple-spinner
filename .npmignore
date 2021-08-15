@@ -1,6 +1,7 @@
-vscode
+.github
+.vscode
+.gitignore
 node_modules
 public
 src
-.gitignore
 package-lock.json

@@ -1,7 +1,14 @@
 import { cleanup, render, act } from '@testing-library/react';
 import Spinner, { getD } from './Spinner';
+import { existsSync } from 'fs';
+import { join as pathJoin } from 'path';
 
 afterEach(cleanup);
+
+describe('Build output exist test', () => {
+  expect(existsSync(pathJoin(__dirname, '../lib/Spinner.js'))).toEqual(true);
+  expect(existsSync(pathJoin(__dirname, '../lib/Spinner.d.ts'))).toEqual(true);
+});
 
 describe('getD test', () => {
   function getxyNotFill(dValue: string): number[] {
@@ -97,12 +104,15 @@ test('Render single color test', () => {
   // Only one path exists.
   expect(paths).toHaveLength(1);
   expect(paths[0]).toHaveAttribute('stroke', colors[0]);
+
+  // Have default width of 4.
+  expect(paths[0]).toHaveAttribute('stroke-width', '4');
 });
 
 test('Render two colors test', () => {
   jest.useFakeTimers();
   const colors = ['#333', '#999'];
-  const { container } = render(<Spinner fill={false} colors={colors} />);
+  const { container } = render(<Spinner fill={false} colors={colors} width={'10'} />);
   expect(container.querySelector('svg')).toBeInTheDocument();
 
   const paths = container.querySelectorAll('path')
@@ -120,4 +130,8 @@ test('Render two colors test', () => {
   })
   expect(paths[0]).toHaveAttribute('stroke', colors[1]);
   expect(paths[1]).toHaveAttribute('stroke', colors[0]);
+
+  // Have width of 10.
+  expect(paths[0]).toHaveAttribute('stroke-width', '10');
+  expect(paths[1]).toHaveAttribute('stroke-width', '10');
 });
