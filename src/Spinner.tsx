@@ -18,6 +18,8 @@ function getYOffset(deg: number): number {
 }
 
 /**
+ * @param {boolean} clockwise Clockwise flag.
+ * @param {boolean} fill Fill flag.
  * @param {number} deg The degree value in 360°.
  */
 function getD(clockwise: boolean, fill: boolean, deg: number): string {
