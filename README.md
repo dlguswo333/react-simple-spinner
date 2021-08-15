@@ -32,6 +32,14 @@ you can set the **size**, **colors to iterate**, and **a flag whether to fill or
 <br>
 
 ## Version History
+### 0.6.0
+- Improve stabilities.
+- Improve dependency specifications.
+- Shrink package size by deleting unnecessary files.
+
+### 0.5.3
+- Solve build outputs not exist.
+
 ### 0.5.2
 - Fix hook error due to miss-written dependencies.
 
